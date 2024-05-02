@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>NEWS</h1>
+    <h1>{{one.title}}</h1>
+    <p>{{one.text}}</p>
+    <span>{{one.author}} | {{one.created}}</span>
+    <hr>
+
+    {% for i in  one.comments.all %}
+        <p>{{i.izoh}}</p>
+        {{i.author.username}}
+        {{i.created}}
+        <hr><hr>
+    {% endfor %}
+
+
+    <h1>Comment:</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{com.as_p}}
+        <button type="submit">save</button>
+    </form>
+    
+
+
+
+</body>
+</html>
