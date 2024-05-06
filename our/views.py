@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
-from .forms import CategoryForm, BookForm, NewsForm, UserForm, CommentForm
+from .forms import CategoryForm, BookForm, NewsForm, UserForm, CommentForm, LoginForm
 from .models import Book, Category, News
+from django.contrib.auth import authenticate,login
+
 
 
 
@@ -91,6 +93,21 @@ def detail(request, id):
         'com': form
     }
     return render(request, 'detail.html', context)
+
+def Login(request):
+    form = LoginForm()
+    if request.POST:
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            a = request.POST['username']
+            b = request.POST['password']
+            f = authenticate(request, username=a, password=b)
+            print(f)
+            if f is not None:
+                login(request, f)
+                return redirect('home')
+    return render(request, "login.html", {'form': form})
+
 
 
 

@@ -28,3 +28,7 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ['username', 'first_name', 'last_name', 'password']
 
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=35)
+    password = forms.CharField(max_length=25)
+

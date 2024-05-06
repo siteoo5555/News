@@ -30,4 +30,5 @@ urlpatterns = [
     path('create/user/',create_user, name='create_user'),
     path('create/news/', create_news, name='create_news'),
     path('detail/<int:id>/', detail, name='detail'),
+    path('login/', Login, name='login'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

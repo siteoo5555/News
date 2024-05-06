@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 
 
@@ -45,6 +46,7 @@ class Comment(models.Model):
 
     def __str__(self) -> str:
         return self.izoh
+
 
 
 
